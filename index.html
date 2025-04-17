@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,42 +9,30 @@
 <div class="container">
     <h1>Менеджер паролей</h1>
     <p>by berlandbor</p>
-
-
+    
     <div id="alertMessage" class="alert" style="display: none;"></div>
 
-    <input id="serviceName" placeholder="Название сервиса" />
-    <input id="login" placeholder="Логин" />
-    <input id="password" placeholder="Пароль" />
-    <button id="generatePasswordBtn">Сгенерировать пароль</button>
-    <hr>
-    <button id="savePasswordBtn">Сохранить</button>
-    <hr>
-    <button id="clearBtn">Очистить поля</button>
+<button id="openAddModalBtn">Добавить запись</button>
 
-    <h2>Список паролей</h2>
-    <div class="scrollable-list">
-        <ul id="passwordList"></ul>
-    </div>
-
-    <hr>
-    <label for="uploadJsonBtn">Загрузить пароли из JSON:</label>
-    <input type="file" id="uploadJsonBtn" accept=".json">
-    <hr>
-    <button id="downloadJsonBtn">Скачать пароли (JSON)</button>
-
-    <div id="storageStatus">
-        <p><strong>Использовано памяти:</strong> <span id="usedSpace">0</span> из 5000 KB</p>
-        <p id="warning" style="color: red;"></p>
-    </div>
-
-    <hr>
-<button id="resetBtn">Сбросить всё (очистить данные)</button>
-
-
+<h2>Список паролей</h2>
+<div class="scrollable-list">
+    <ul id="passwordList"></ul>
 </div>
 
-<div id="modal" class="modal">
+<hr>
+<label for="uploadJsonBtn">Загрузить пароли из JSON:</label>
+<input type="file" id="uploadJsonBtn" accept=".json">
+<hr>
+<button id="downloadJsonBtn">Скачать пароли (JSON)</button>
+<hr>
+<button id="resetBtn">Сбросить всё (очистить данные)</button>
+
+<div id="storageStatus">
+    <p><strong>Использовано памяти:</strong> <span id="usedSpace">0</span> из 5000 KB</p>
+    <p id="warning" style="color: red;"></p>
+</div>
+
+</div><div id="modal" class="modal">
     <div id="alertMessage1" class="alert" style="display: none;"></div>
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -57,17 +44,43 @@
         <hr>
         <button id="deleteBtn">Удалить запись</button>
     </div>
-</div>
-
-<div id="authScreen" class="modal" style="display: flex;">
+</div><div id="addModal" class="modal">
+    <div class="modal-content">
+        <span class="closeAddModal">&times;</span>
+        <h2>Добавить пароль</h2>
+        <input id="serviceName" placeholder="Название сервиса" />
+        <input id="login" placeholder="Логин" />
+        <input id="password" placeholder="Пароль" />
+        <button id="generatePasswordBtn">Сгенерировать пароль</button>
+        <hr>
+        <button id="savePasswordBtn">Сохранить</button>
+        <hr>
+        <button id="clearBtn">Очистить поля</button>
+    </div>
+</div><div id="authScreen" class="modal" style="display: flex;">
     <div class="modal-content">
         <h2 id="authTitle">Введите мастер-пароль</h2>
         <input type="password" id="authInput" placeholder="Мастер-пароль">
         <button id="authSubmitBtn">Войти</button>
         <p id="authError" style="color: red;"></p>
     </div>
-</div>
+</div><script src="script.js"></script><script>
+  const addModal = document.getElementById('addModal');
+  const openAddModalBtn = document.getElementById('openAddModalBtn');
+  const closeAddModal = document.querySelector('.closeAddModal');
 
-<script src="script.js"></script>
-</body>
+  openAddModalBtn.addEventListener('click', () => {
+    addModal.style.display = 'flex';
+  });
+
+  closeAddModal.addEventListener('click', () => {
+    addModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === addModal) {
+      addModal.style.display = 'none';
+    }
+  });
+</script></body>
 </html>
