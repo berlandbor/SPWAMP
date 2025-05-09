@@ -1,130 +1,188 @@
-
-h1 {text-align: center;}
-h2  {text-align: center;
-     color: grey;
-    }
-
-    p{
-        text-align: center;
-        color: blue;
-        }
-
-/* Стили для основного интерфейса */
-input {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+/* Базовые заголовки */
+h1, h2, p {
+  text-align: center;
 }
 
+h2 {
+  color: #555;
+}
+
+p {
+  color: #0077cc;
+}
+
+/* Контейнер */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Кнопки */
 button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 button:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+button.danger {
+  background-color: #dc3545;
 }
 
-li {
-    background-color: #f9f9f9;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
+button.danger:hover {
+  background-color: #c82333;
 }
 
-li:hover {
-    background-color: #f1f1f1;
+/* Кнопка загрузки файла как метка */
+.file-label {
+  background-color: #17a2b8;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 5px;
+}
+.file-label:hover {
+  background-color: #138496;
 }
 
+/* Инпуты */
+input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Поисковый инпут */
+#searchInput {
+  margin: 10px 0 20px;
+  border: 1px solid #ccc;
+  padding-left: 14px;
+}
+
+/* Пароль + иконка глаз */
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 40px;
+}
+
+.password-field .toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  color: #666;
+}
+
+/* Список паролей */
+.scrollable-list {
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  background: #f8f9fa;
+}
+
+.scrollable-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.scrollable-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.scrollable-list li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Модальные окна */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 8px;
-    text-align: left;
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  position: relative;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+.close, .closeAddModal {
+  position: absolute;
+  top: 10px; right: 14px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.close:hover, .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+.close:hover, .close:focus,
+.closeAddModal:hover, .closeAddModal:focus {
+  color: #000;
 }
 
-/* Стили для состояния хранилища */
-#storageStatus {
-    margin-top: 20px;
-    text-align: left;
+/* Группировка кнопок */
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
 }
 
-/* styles.css */
+/* Сообщения */
 .alert {
-    background-color: #ffcccc;
-    color: #990000;
-    padding: 10px;
-    border: 1px solid #990000;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    text-align: center;
+  background-color: #ffe0e0;
+  color: #990000;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: center;
+  border: 1px solid #cc0000;
 }
 
-/* Стиль для контейнера списка */
-    .scrollable-list {
-        width: 95%;         /* Ширина контейнера */
-        height: 200px;        /* Высота контейнера */
-        overflow-y: auto;     /* Вертикальная прокрутка */
-        border: 1px solid #ccc; /* Граница для визуализации */
-        padding: 10px; /* Внутренние отступы */
-        text-align: center;
-    }
-
-    /* Стиль для элементов списка */
-    .scrollable-list ul {
-        list-style: none;     /* Убираем стандартные маркеры списка */
-        padding: 0;
-        margin: 0;
-    }
-
-    .scrollable-list li {
-        padding: 8px;
-        border-bottom: 1px solid #ddd; /* Линия между элементами */
-    }
+/* Статус хранилища */
+#storageStatus {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
